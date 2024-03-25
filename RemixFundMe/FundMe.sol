@@ -22,10 +22,10 @@ contract FundMe {
     }
 
     function fund() public payable returns (bool) {
-        // require(
-        //     msg.value.getConversionRate() >= MIN_USD,
-        //     "Your value must be greater than 5$"
-        // );
+        require(
+            msg.value.getConversionRate() >= MIN_USD,
+            "Your value must be greater than 5$"
+        );
 
         Users storage currentUser = user[msg.sender];
         currentUser.amount += msg.value;
